@@ -50,3 +50,20 @@ executeFix prog =
       _executeFix prog (c + 1) l
   in
   _executeFix prog 0 prog 
+
+-- Parses a string "name parameter" into an Instruction
+parseInstruction :: String -> Instruction
+parseInstruction i = 
+  let
+    (n : ps : _) = words i
+  in
+    if ps !! 0 == '+' then
+      (n, read (drop 1 ps) :: Int)
+    else 
+      (n, read ps :: Int)
+
+-- Reads the input file and returns a Program
+readInput :: IO Program
+readInput = do
+  input <- readFile "days/inputs/day8.txt"
+  return ([parseInstruction l | l <- lines input])
