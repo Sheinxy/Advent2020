@@ -37,7 +37,7 @@ contiguousSumN l n =
   _contiguousSumN [] l 0
 
 
--- Reads the input file and returns a Program
+-- Reads the input file and returns [Int]
 readInput :: IO [Int]
 readInput = do
   input <- readFile "days/inputs/day9.txt"
