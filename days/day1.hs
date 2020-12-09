@@ -19,3 +19,10 @@ find3SumN n (e : l) =
   else (a, b, e)
 solve3Sum2020 l =
   let (a, b, c) = (find3SumN 2020 l) in a * b * c
+
+-- I found this solution during day 9
+sumTo2020 :: [Int] -> Int
+sumTo2020 l = product $ head [[i, j] | i <- l,
+                                       j <- l,
+                                       i /= j,
+                                       i + j == 2020]
